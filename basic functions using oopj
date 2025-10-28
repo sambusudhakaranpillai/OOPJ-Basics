@@ -1,0 +1,105 @@
+ Class Person
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(f"Name: {self.name}, Age: {self.age}")
+
+
+# 2. Class Circle
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14159 * self.radius ** 2
+
+    def circumference(self):
+        return 2 * 3.14159 * self.radius
+
+
+# 3. Class Student
+class Student:
+    def __init__(self, name, mark1, mark2, mark3):
+        self.name = name
+        self.mark1 = mark1
+        self.mark2 = mark2
+        self.mark3 = mark3
+
+    def average(self):
+        avg = (self.mark1 + self.mark2 + self.mark3) / 3
+        return avg
+
+
+# 4. Class Book
+class Book:
+    def __init__(self, title, author, price):
+        self.title = title
+        self.author = author
+        self.price = price
+
+    def display(self):
+        print(f"Title: {self.title}, Author: {self.author}, Price: ₹{self.price}")
+
+
+# 5. Class Calculator
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+    def subtract(self, a, b):
+        return a - b
+
+    def multiply(self, a, b):
+        return a * b
+
+    def divide(self, a, b):
+        if b != 0:
+            return a / b
+        else:
+            return "Cannot divide by zero"
+
+
+# 6. Class Rectangle
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+
+# 7. Class Temperature
+class Temperature:
+    def celsius_to_fahrenheit(self, celsius):
+        return (celsius * 9/5) + 32
+
+    def fahrenheit_to_celsius(self, fahrenheit):
+        return (fahrenheit - 32) * 5/9
+
+
+# 8. Class Employee (with private attributes)
+class Employee:
+    def __init__(self, name, salary):
+        self.__name = name
+        self.__salary = salary
+
+    # Getter methods
+    def get_name(self):
+        return self.__name
+
+    def get_salary(self):
+        return self.__salary
+
+    # Setter methods
+    def set_name(self, name):
+        self.__name = name
+
+    def set_salary(self, salary):
+        self.__salary = salary
