@@ -1,0 +1,33 @@
+#Encapsulation prgm
+
+class Bankaccount:
+  def __init__(self,name,balance):
+    self.__name = name
+    self.__balance = balance
+  def get_name(self):
+    return self.__name
+  def set_name(self,name):
+    self.__name = name
+  
+  def get_balance(self):
+    return self.__balance
+  def deposit(self,amount):
+    if amount >0:
+      self.__balance += amount
+    else:
+      print("invalid amount")
+  def withdraw(self,amount):
+     if self.__balance >= amount:
+        self.__balance -= amount
+     else:
+         print("low amount")
+         
+n = input("enter name")
+b= int(input("enter balance"))
+d = int(input("enter deposit"))
+w = int(input("enter withdeaw"))
+a = Bankaccount(n,b)
+a.deposit(d)
+a.withdraw(w)
+print(a.get_name())
+print(a.get_balance())
