@@ -33,3 +33,18 @@ a.withdraw(w)
 a.set_name(ac)
 print(a.get_name())
 print(a.get_balance())
+
+class student:
+  def __init__(self,name,grade):
+    self.__name = name
+    self.__grade = grade
+  def get_grade(self):
+    return self.__grade
+  def set_grade(self,grade):
+      if self.__grade >0 and self.__grade <= 100:
+        self.__grade = grade
+      else:
+        print("invalid grade")
+a = student("sambu",80)
+a.set_grade(90)
+print(a.get_grade())
