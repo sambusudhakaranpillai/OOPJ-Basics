@@ -1,0 +1,29 @@
+class student:
+  def __init__(self,name,grade):
+    self.__name = name
+    self.__grade = grade
+  def get_grade(self):
+    return self.__grade
+  def set_grade(self,grade):
+      if self.__grade >0 and self.__grade <= 100:
+        self.__grade = grade
+      else:
+        print("invalid grade")
+a = student("sambu",80)
+a.set_grade(90)
+print(a.get_grade())
+
+class Employee:
+  def __init__(self,name,salary):
+    self.name = name
+    self.__salary = salary
+  def get_salary(self):
+    return self.__salary
+  def set_salary(self,salary):
+    if salary > 0:
+      self.__salary  = salary
+    else:
+      print("invalid salary")
+Employee = Employee("sambu",5000)
+
+print(Employee.get_salary())
