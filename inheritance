@@ -1,0 +1,107 @@
+class Animal:
+  def speak(self):
+    print("animals can make sounds")
+class Dog(Animal):
+  def bark(self):
+    print("god barks")
+d = Dog()
+d.speak()
+d.bark()
+#Multiple inheritance
+class Father:
+  def quality(self):
+    print("hardworking")
+class Mother:
+  def nature(self):
+    print("kind")
+class Child(Father,Mother):
+  def hobby(self):
+    print("loves painting")
+c = Child()
+c.quality()
+c.nature()
+c.hobby()
+#multilevel inheritance
+class Grandparent:
+  def oldproperty(self):
+    print("old family house")
+class Parent(Grandparent):
+  def newproperty(self):
+    print("new car")
+class Child(Parent):
+  def ownproperty(self):
+    print("personal laptop")
+c = Child()
+c.oldproperty()
+c.newproperty()
+c.ownproperty()
+#super() keyword
+class Parent:
+  def display(self):
+    print("parent display method")
+class Child(Parent):
+  def display(self):
+    super().display()
+    print("child display method")
+obj = Child()
+obj.display()
+#method overriding
+class Animal:
+  def sound(self):
+    print("animal makes sound")
+class Dog(Animal):
+  def sound(self):
+    print("dog barks")
+d = Dog()
+d.sound()
+class Vehicle:
+  def __init__(self,brand):
+    self.brand = brand
+  def start(self):
+    print(f"{self.brand}is starting")
+class Car(Vehicle):
+  def drive(self):
+    print(f"{self.brand}is driving")
+class Bike(Vehicle):
+  def ride(self):
+    print(f"{self.brand}is riding")
+c  = Car("toyota")
+b = Bike("hero")
+c.start()
+b.start()
+c.drive()
+b.ride()class Teacher:
+  def teach(self):
+    print("teacher is teaching")
+class Student:
+  def learn(self):
+    print("student is learning")
+class Tutor(Teacher,Student):
+  def guide(self):
+    print("tutor is guiding")
+t = Tutor()
+t.teach()
+t.learn()
+t.guide()
+class Person:
+  def __init__(self,name):
+    self.name = name
+class Employee(Person):
+  def __init__(self,name,salary):
+    super(). __init__(name)
+    self.salary = salary
+  def display(self):
+    print(f"name is {self.name} and salary is {self.salary}")
+e = Employee("sambu",6000)
+e.display()
+class Vehicle:
+  def move(self):
+    print("vehicle is moving")
+
+class car(Vehicle):
+  def move(self):
+    print("cars is moving")
+v = Vehicle()
+c= car()
+c.move()
+      
