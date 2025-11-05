@@ -1,0 +1,56 @@
+from abc import ABC, abstractmethod
+class Fooditem(ABC):
+  def __int__(self,name,price):
+    self._name = name
+    self._price = price
+  @abstractmethod
+  def prepare(self):
+    pass
+  @abstractmethod
+  def serve(self):
+    pass
+class pizza(Fooditem):
+  def prepare(self):
+    print(f"{self.name}is being prepared")
+  def serve(self):
+    print(f"{self.name}is served")
+class Burger(Fooditem):
+  def prepare(self):
+    print(f"{self.name}is being prepared")
+  def serve(self):
+    print(f"{self.name}is being served")
+class pasta(Fooditem):
+  def prepare(self):
+    print(f"{self.name}is being prepared")
+  def serve(self):
+    print(f"{self.name}is being served")
+class order:
+  def __init__(self,item):
+    self.__item = []
+    self.__total = 0
+  def add_item(self,food_item):
+    self.__item.append(food_item)
+    self.__total+=self.food_item
+  def show_order(Self):
+    print("order summary")
+  for items in self.__item:
+    items.prepare()
+    items.serve()
+class payment(ABC):
+  @abstractmethod
+  def make_payment(self,amount):
+    self.amount = amount
+  def creditcardpayment(make_payment):
+    print(f"payment of{self.amount}is done using credit card") 
+  def upi(make_payment):
+    print(f"payment of{self.amount}is done using upi")
+  def paypal(make_payment):
+    print(f"payment of{self.amount}is done using paypal")
+
+class main:
+  def main():
+    print("online food ordering system")
+    print("menu")
+    print("1.pizza")
+    print("2.Burger")
+    print("3.pasta")
