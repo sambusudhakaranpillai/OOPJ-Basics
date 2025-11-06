@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
+import math
 class Fooditem(ABC):
-  def __int__(self,name,price):
+  def __init__(self,name,price):
     self._name = name
     self._price = price
   @abstractmethod
@@ -11,46 +12,92 @@ class Fooditem(ABC):
     pass
 class pizza(Fooditem):
   def prepare(self):
-    print(f"{self.name}is being prepared")
+    print(f"{self._name} is being prepared")
   def serve(self):
-    print(f"{self.name}is served")
+    print(f"{self._name} is served")
 class Burger(Fooditem):
   def prepare(self):
-    print(f"{self.name}is being prepared")
+    print(f"{self._name} is being prepared")
   def serve(self):
-    print(f"{self.name}is being served")
+    print(f"{self._name} is being served")
 class pasta(Fooditem):
   def prepare(self):
-    print(f"{self.name}is being prepared")
+    print(f"{self._name} is being prepared")
   def serve(self):
-    print(f"{self.name}is being served")
+    print(f"{self._name} is being served")
 class order:
-  def __init__(self,item):
+  def __init__(self):
     self.__item = []
     self.__total = 0
   def add_item(self,food_item):
     self.__item.append(food_item)
-    self.__total+=self.food_item
-  def show_order(Self):
+    self.__total += food_item._price
+  def show_order(self):
     print("order summary")
-  for items in self.__item:
-    items.prepare()
-    items.serve()
+    for items in self.__item:
+        items.prepare()
+        items.serve()
+    print(f"Total amount: {self.__total}")
+
 class payment(ABC):
   @abstractmethod
   def make_payment(self,amount):
-    self.amount = amount
-  def creditcardpayment(make_payment):
-    print(f"payment of{self.amount}is done using credit card") 
-  def upi(make_payment):
-    print(f"payment of{self.amount}is done using upi")
-  def paypal(make_payment):
-    print(f"payment of{self.amount}is done using paypal")
+    pass
 
-class main:
-  def main():
+class creditcardpayment(payment):
+  def make_payment(self,amount):
+    print(f"payment of {amount} is done using credit card")
+class upi(payment):
+  def make_payment(self,amount):
+    print(f"payment of {amount} is done using upi")
+class paypal(payment):
+  def make_payment(self,amount):
+    print(f"payment of {amount} is done using paypal")
+
+
+def main():
     print("online food ordering system")
     print("menu")
-    print("1.pizza")
-    print("2.Burger")
-    print("3.pasta")
+    print("1. Pizza (₹250)")
+    print("2. Burger (₹150)")
+    print("3. Pasta (₹200)")
+    print("4. Exit")
+
+    current_order = order()
+
+    while True:
+        choice = input("Enter your choice: ")
+        if choice == '1':
+            current_order.add_item(pizza("Pizza", 250))
+        elif choice == '2':
+            current_order.add_item(Burger("Burger", 150))
+        elif choice == '3':
+            current_order.add_item(pasta("Pasta", 200))
+        elif choice == '4':
+            break
+        else:
+            print("Invalid choice")
+
+    current_order.show_order()
+
+    if current_order._order__total > 0:
+        print("\nPayment Options:")
+        print("1. Credit Card")
+        print("2. UPI")
+        print("3. Paypal")
+        payment_choice = input("Select payment method: ")
+
+        if payment_choice == '1':
+            credit_card = creditcardpayment()
+            credit_card.make_payment(current_order._order__total)
+        elif payment_choice == '2':
+            upi_payment = upi()
+            upi_payment.make_payment(current_order._order__total)
+        elif payment_choice == '3':
+            paypal_payment = paypal()
+            paypal_payment.make_payment(current_order._order__total)
+        else:
+            print("Invalid payment method")
+
+if __name__ == "__main__":
+    main()
