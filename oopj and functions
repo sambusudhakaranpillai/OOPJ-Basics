@@ -1,0 +1,123 @@
+class Account:
+  def __init__(self,account_no,balance):
+    self.__account_no=account_no
+    self.__balance=balance
+  def deposit(self,amount):
+    self.__balance+=amount
+  def withdraw(self,amount):
+    if self.__balance >= amount:
+      self.__balance -= amount
+    else:
+      print("Insufficient funds")
+class savingsaccount(Account):
+  def __init__(self,interest_rate,account_no,balance):
+    self.interest_rate = interest_rate
+    super().__init__(account_no,balance)
+  def apply_interest(self):
+    interest = self._Account__balance * (self.interest_rate /100)
+    self._Account__balance += interest
+class currentaccount(Account):
+  def __init__(self,overdraft_limit,account_no,balance):
+    self.overdraft_limit = overdraft_limit
+    super().__init__(account_no,balance)
+  def withdraw(self, amount):
+    if self._Account__balance + self.overdraft_limit >= amount:
+      self._Account__balance -= amount
+    else:
+      print("Insufficient funds and overdraft limit exceeded.")
+a = Account(1300000,3000)
+print(a._Account__balance)
+a.deposit(1000)
+s = savingsaccount(10,13000,500)
+s.apply_interest()
+print(s._Account__balance)
+c = currentaccount(1000,13000,500)
+c.withdraw(1000)
+print(c.overdraft_limit)
+
+class shoppingcart:
+  def __init__(self):
+    self.__items = {}
+  def add_items(self, item, price):
+    self.__items[item] = price
+  def remove_items(self, item):
+    if item in self.__items:
+      del self.__items[item]
+    else:
+      print(f"{item} not found in the cart.")
+  def get_total(self):
+    return sum(self.__items.values())
+d = shoppingcart()
+d.add_items("apple",250)
+d.add_items("banana",100)
+print(d.get_total())
+d.remove_items("apple")
+print(d.add_items)
+print(d.get_total())
+
+class LibraryBook:
+  def __init__(self,title,author,is_borrowed):
+    self.__title = title
+    self.__author = author
+    self.__is_borrowed = is_borrowed
+  def borrow(self):
+    if not self.__is_borrowed:
+      self.__is_borrowed = True
+      print(f"'{self.__title}' has been borrowed.")
+    else:
+      print(f"'{self.__title}' is already borrowed.")
+  def return_book(self):
+    if self.__is_borrowed:
+      self.__is_borrowed = False
+      print(f"'{self.__title}' has been returned.")
+    else:
+      print(f"'{self.__title}' was not borrowed.")
+
+  
+  def status(self):
+    return "Borrowed" if self.__is_borrowed else "Available"
+
+b = LibraryBook("harry potter","jk rowling", False)
+b.borrow()
+b.return_book()
+print(b.status)
+
+class patient:
+  def __init__(self,name,age):
+    self.__name = name
+    if age >= 0:
+      self.__age = age
+    else:
+      print("Age cannot be negative.")
+      self.__age = 0
+    self.__medicalhistory = []
+
+  def add_diagnosis(self, disease):
+    self.__medicalhistory.append(disease)
+class User:
+    def __init__(self, username, password):
+        self.__username = username
+        self.__password = password
+
+    
+    def username(self):
+        return self.__username
+
+  
+    def password(self):
+        raise AttributeError("Password is write-only")
+
+    
+    def password(self, pwd):
+        if len(pwd) < 8:
+            print("Password must be at least 8 characters long.")
+            return
+        if not any(char.isdigit() for char in pwd):
+            print("Password must contain at least one number.")
+            return
+        self.__password = pwd
+
+    def check_password(self, pwd):
+        return self.__password == pwd
+u = User("sambu","sambu123")
+print(u.username())
